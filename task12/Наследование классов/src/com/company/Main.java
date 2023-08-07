@@ -1,0 +1,45 @@
+//ДЗ 10. Создание класса. Создать класс Box с полями ширина, высота, длина. Определить метод класса, который вычисляет
+// объем этой коробки (ширина * высоту * длину). Создать 5 конкретных объектов этого класса и задать
+// с помощью конструктора или методов конкретное состояние этих объектов (конкретные величины ширины,
+// высоты и длины). Вывести на экран объемы этих коробок
+
+//ДЗ 11. Создание класса. Добавить в класс Box из предыдущей домашки несколько новых свойств (цвет и материал).
+// Реализовать новый конструктор (дополнительно к существующему), который будет устанавливать все поля,
+// также добавить геттеры и сеттеры на каждое поле. В конструкторы и сеттеры добавить логику на установку
+// значений высоты, ширины и длинны - чтобы нельзя было установить значение меньше, либо равное нулю
+
+package com.company;
+
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
+public class Main {
+
+    public static void main(String[] args){
+
+        Box[] boxesArray = new Box[5];
+        for (int i = 0; i < boxesArray.length; i++) {
+            boxesArray[i] = new Box(i+1, 10, 10);
+            System.out.printf("Объем %1d коробки равен: \t %2$.2f %3$s%n",
+                    i+1, boxesArray[i].calculateVolume(), "см^3");
+        }
+        System.out.println();
+
+        Box box1 = new Box(2.35, 3.5, 5, Material.WOOD);
+        System.out.printf("Описание Вашей коробки box1: \nРазмеры:\t ширина %1.2f см х высота %2.2f см х " +
+                        "длина %3.2f см. \nМатериал:\t %5s.\n\n",
+                box1.getWidth(), box1.getHeight(), box1.getLength(), box1.getMaterial().getDescription());
+
+        ColorBox colorBox = new ColorBox(5, 5, 6, Material.PAPER, Color.BROWN);
+        System.out.printf("Описание Вашей коробки colorBox:" +
+                        "\nРазмеры colorBox:\t\t\t ширина %1.2f см х высота %2.2f см х длина %3.2f см.\n",
+                colorBox.getWidth(), colorBox.getHeight(), colorBox.getLength());
+        System.out.printf("Материал коробки colorBox:\t %1s, %2s, %3s.\n",
+                colorBox.getMaterial(), colorBox.getMaterial().getDescription(),
+                colorBox.getMaterial().getCode());
+        System.out.printf("Цвет коробки colorBox:\t\t %1s, %2s, %3s.\n",
+                colorBox.getColor(), colorBox.getColor().getDescription(),
+                colorBox.getColor().getCodeHEX());
+    }
+}
+
+
